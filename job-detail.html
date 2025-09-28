@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internship Details — InternFind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <i class="fas fa-briefcase text-indigo-600 text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-indigo-600">InternFind</span>
+          </div>
+          <div class="hidden md:ml-6 md:flex md:space-x-8">
+            <a href="/index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              Home
+            </a>
+            <a href="/jobs.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              Browse Jobs
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="/login.html" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+              Sign In
+            </a>
+            <a href="/login.html" class="ml-3 relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+              Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="px-4 py-6 sm:px-0">
+      <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6">
+          <div id="jobDetailContainer">
+            <!-- Job details will be loaded here -->
+            <div class="text-center py-12">
+              <i class="fas fa-spinner fa-spin text-indigo-600 text-3xl mb-4"></i>
+              <p class="text-gray-600">Loading internship details...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white mt-12">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="md:grid md:grid-cols-4 md:gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center">
+            <i class="fas fa-briefcase text-indigo-600 text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-indigo-600">InternFind</span>
+          </div>
+          <p class="mt-4 text-gray-500">
+            Connecting students with internship opportunities to launch their careers.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Resources</h3>
+          <ul class="mt-4 space-y-4">
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Blog</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Career Guides</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Resume Tips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+          <ul class="mt-4 space-y-4">
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Contact</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+        <div class="flex space-x-6 md:order-2">
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Facebook</span>
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Instagram</span>
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Twitter</span>
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+          &copy; 2023 InternFind. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/shared.js"></script>
+  <script src="/js/job-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — InternFind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <i class="fas fa-briefcase text-indigo-600 text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-indigo-600">InternFind</span>
+          </div>
+          <div class="hidden md:ml-6 md:flex md:space-x-8">
+            <a href="/index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              Home
+            </a>
+            <a href="/jobs.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              Browse Jobs
+            </a>
+            <a href="/dashboard.html" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <div class="flex items-center space-x-4">
+              <a href="/dashboard.html" class="text-gray-700 hover:text-indigo-600">
+                <i class="fas fa-user-circle mr-1"></i> <span id="userEmail">Loading...</span>
+              </a>
+              <button id="logoutBtn" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <div class="md:flex md:items-center md:justify-between">
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl font-bold leading-tight text-gray-900">Dashboard</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="px-4 py-6 sm:px-0">
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-indigo-100 rounded-md p-3">
+                  <i class="fas fa-briefcase text-indigo-600"></i>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 truncate">Applications</dt>
+                    <dd class="flex items-baseline">
+                      <div class="text-2xl font-semibold text-gray-900" id="applicationsCount">0</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-green-100 rounded-md p-3">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 truncate">Interviews</dt>
+                    <dd class="flex items-baseline">
+                      <div class="text-2xl font-semibold text-gray-900" id="interviewsCount">0</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-yellow-100 rounded-md p-3">
+                  <i class="fas fa-bookmark text-yellow-600"></i>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 truncate">Saved Jobs</dt>
+                    <dd class="flex items-baseline">
+                      <div class="text-2xl font-semibold text-gray-900" id="savedJobsCount">0</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                  <i class="fas fa-user-graduate text-purple-600"></i>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 truncate">Profile Completion</dt>
+                    <dd class="flex items-baseline">
+                      <div class="text-2xl font-semibold text-gray-900" id="profileCompletion">0%</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="mt-8">
+          <div class="sm:hidden">
+            <select id="tab-select" class="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+              <option value="applications">Applications</option>
+              <option value="saved">Saved Jobs</option>
+              <option value="profile">My Profile</option>
+            </select>
+          </div>
+          <div class="hidden sm:block">
+            <div class="border-b border-gray-200">
+              <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                <button id="applications-tab" class="tab-button border-indigo-500 text-indigo-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                  Applications
+                </button>
+                <button id="saved-tab" class="tab-button border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                  Saved Jobs
+                </button>
+                <button id="profile-tab" class="tab-button border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                  My Profile
+                </button>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Tab Panels -->
+          <div class="mt-6">
+            <!-- Applications Tab -->
+            <div id="applications-panel" class="tab-panel">
+              <div class="bg-white shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Your Applications</h3>
+                  <p class="mt-1 max-w-2xl text-sm text-gray-500">Track the status of your internship applications</p>
+                </div>
+                <ul id="applicationsList" class="divide-y divide-gray-200">
+                  <!-- Applications will be loaded here -->
+                  <li class="px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between">
+                      <div class="text-sm font-medium text-indigo-600 truncate">Loading applications...</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Saved Jobs Tab -->
+            <div id="saved-panel" class="tab-panel hidden">
+              <div class="bg-white shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Saved Internships</h3>
+                  <p class="mt-1 max-w-2xl text-sm text-gray-500">Internships you've saved for later</p>
+                </div>
+                <ul id="savedJobsList" class="divide-y divide-gray-200">
+                  <!-- Saved jobs will be loaded here -->
+                  <li class="px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between">
+                      <div class="text-sm font-medium text-indigo-600 truncate">Loading saved jobs...</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profile-panel" class="tab-panel hidden">
+              <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Your Profile</h3>
+                  <p class="mt-1 max-w-2xl text-sm text-gray-500">Manage your account information and preferences</p>
+                </div>
+                <div class="border-t border-gray-200">
+                  <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">Full name</dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" id="userFullName">Loading...</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">Email address</dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" id="userEmailDetail">Loading...</dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">University</dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" id="userUniversity">Not specified</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">Major</dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" id="userMajor">Not specified</dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">Graduation Year</dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" id="userGraduation">Not specified</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="px-4 py-5 sm:px-6 bg-gray-50">
+                  <button id="editProfileBtn" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Edit Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white mt-12">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="md:grid md:grid-cols-4 md:gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center">
+            <i class="fas fa-briefcase text-indigo-600 text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-indigo-600">InternFind</span>
+          </div>
+          <p class="mt-4 text-gray-500">
+            Connecting students with internship opportunities to launch their careers.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Resources</h3>
+          <ul class="mt-4 space-y-4">
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Blog</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Career Guides</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Resume Tips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+          <ul class="mt-4 space-y-4">
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Contact</a></li>
+            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+        <div class="flex space-x-6 md:order-2">
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Facebook</span>
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Instagram</span>
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Twitter</span>
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+          &copy; 2023 InternFind. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/shared.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
